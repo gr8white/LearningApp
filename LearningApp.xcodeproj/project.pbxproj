@@ -16,6 +16,8 @@
 		E02D823727D5670900512DED /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = E02D823527D5670900512DED /* style.html */; };
 		E02D823927D66EEB00512DED /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D823827D66EEB00512DED /* Models.swift */; };
 		E02D823B27D6835900512DED /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D823A27D6835900512DED /* HomeViewRow.swift */; };
+		E02D823D27D686E100512DED /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D823C27D686E100512DED /* LessonListView.swift */; };
+		E02D823F27D6925A00512DED /* LessonListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D823E27D6925A00512DED /* LessonListViewRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		E02D823527D5670900512DED /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
 		E02D823827D66EEB00512DED /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E02D823A27D6835900512DED /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
+		E02D823C27D686E100512DED /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
+		E02D823E27D6925A00512DED /* LessonListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListViewRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				E02D821F27D563E600512DED /* HomeView.swift */,
+				E02D823C27D686E100512DED /* LessonListView.swift */,
 				E02D823A27D6835900512DED /* HomeViewRow.swift */,
+				E02D823E27D6925A00512DED /* LessonListViewRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02D823F27D6925A00512DED /* LessonListViewRow.swift in Sources */,
+				E02D823D27D686E100512DED /* LessonListView.swift in Sources */,
 				E02D822027D563E600512DED /* HomeView.swift in Sources */,
 				E02D823B27D6835900512DED /* HomeViewRow.swift in Sources */,
 				E02D821E27D563E600512DED /* LearningApp.swift in Sources */,

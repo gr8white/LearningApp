@@ -20,7 +20,15 @@ struct HomeView: View {
                     LazyVStack {
                         ForEach(model.modules) { m in
                             VStack(spacing: 20) {
-                                HomeViewRow(image: m.content.image, title: "Learn \(m.category)", description: m.content.description, count: "\(m.content.lessons.count) Lessons", time: m.content.time)
+                                NavigationLink {
+                                    LessonListView()
+                                        .onAppear {
+                                            model.beginModule(m.id)
+                                        }
+                                } label: {
+                                    HomeViewRow(image: m.content.image, title: "Learn \(m.category)", description: m.content.description, count: "\(m.content.lessons.count) Lessons", time: m.content.time)
+                                }
+                                .buttonStyle(.plain)
                                 
                                 HomeViewRow(image: m.test.image, title: "\(m.category) Test", description: m.test.description, count: "\(m.test.questions.count) Questions", time: m.test.time)
                             }

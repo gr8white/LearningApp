@@ -8,7 +8,14 @@
 import Foundation
 
 class ContentModel: ObservableObject {
+    
+    // List of modules
     @Published var modules = [Module]()
+    
+    // Current Module
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0
+    
     var styleData: Data?
     
     init() {
@@ -43,5 +50,18 @@ class ContentModel: ObservableObject {
         } catch {
             print("Couldn't parse style data")
         }
+    }
+    
+    func beginModule(_ moduleId: Int) {
+        // Find the index fo rthis module id
+        for index in 0..<modules.count {
+            if modules[index].id == moduleId {
+                currentModuleIndex = index
+                break
+            }
+        }
+        
+        // Set the current module
+        currentModule = modules[currentModuleIndex]
     }
 }
