@@ -16,6 +16,13 @@ class ContentModel: ObservableObject {
     @Published var currentModule: Module?
     var currentModuleIndex = 0
     
+    // Current lesson
+    @Published var currentLesson: Lesson?
+    var currentLessonIndex = 0
+    
+    // Current lesson description
+    @Published var lessonDescription = NSAttributedString()
+    
     var styleData: Data?
     
     init() {
@@ -63,5 +70,51 @@ class ContentModel: ObservableObject {
         
         // Set the current module
         currentModule = modules[currentModuleIndex]
+    }
+    
+    func beginLesson(_ lessonIndex: Int) {
+        if lessonIndex < currentModule!.content.lessons.count {
+            currentLessonIndex = lessonIndex
+        } else {
+            currentLessonIndex = 0
+        }
+        
+        currentLesson = currentModule!.content.lessons[lessonIndex]
+        lessonDescription = addStyling(currentLesson!.explanation)
+    }
+    
+    func advanceNextLesson() {
+        currentLessonIndex += 1
+        
+        if currentLessonIndex < currentModule!.content.lessons.count {
+            currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(currentLesson!.explanation)
+        } else {
+            currentLessonIndex = 0
+            currentLesson = nil
+        }
+    }
+    
+    func hasNextLesson() -> Bool {
+        return (currentLessonIndex + 1 < currentModule!.content.lessons.count)
+    }
+    
+    private func addStyling(_ htmlString: String) -> NSAttributedString {
+        var resultString = NSAttributedString()
+        var data = Data()
+        
+        // Add styling data
+        if styleData != nil {
+            data.append(styleData!)
+        }
+        // Add html data
+        data.append(Data(htmlString.utf8))
+        
+        // convert to attributed string
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            resultString = attributedString
+        }
+        
+        return resultString
     }
 }
