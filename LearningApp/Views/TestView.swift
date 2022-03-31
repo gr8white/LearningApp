@@ -62,17 +62,24 @@ struct TestView: View {
                 
                 // Button
                 Button {
-                    submitted = true
-                    
-                    if selectedAnswerIndex == model.currentQuestion?.correctIndex {
-                        numCorrect += 1
+                    if !submitted {
+                        submitted = true
+                        
+                        if selectedAnswerIndex == model.currentQuestion?.correctIndex {
+                            numCorrect += 1
+                        }
+                    } else {
+                        model.advanceNextQuestion()
+                        
+                        selectedAnswerIndex = nil
+                        submitted = false
                     }
                 } label: {
                     ZStack {
                         RectangleCard(color: .green)
                             .frame(height: 48)
                         
-                        Text("Submit")
+                        Text(buttonText)
                             .bold()
                             .foregroundColor(.white)
                     }
@@ -85,6 +92,18 @@ struct TestView: View {
             }
         }
         .navigationTitle("\(model.currentModule?.category ?? "") Test")
+    }
+    
+    var buttonText: String {
+        if submitted {
+            if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+                return "Finished"
+            } else {
+                return "Next"
+            }
+        } else {
+            return "Submit"
+        }
     }
 }
 
