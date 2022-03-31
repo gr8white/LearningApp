@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LessonListView: View {
+struct ContentView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
@@ -16,12 +16,12 @@ struct LessonListView: View {
                 if model.currentModule != nil {
                     ForEach(0..<model.currentModule!.content.lessons.count) { index in
                         NavigationLink {
-                            LessonDetailView()
+                            ContentDetailView()
                                 .onAppear(perform: {
                                     model.beginLesson(index)
                                 })
                         } label: {
-                            LessonListViewRow(index: index)
+                            ContentViewRow(index: index)
                         }
 
                     }
@@ -30,7 +30,7 @@ struct LessonListView: View {
             .accentColor(.black)
             .padding(.horizontal)
             .padding(.top, 25)
-            .navigationTitle("Learn \(model.currentModule?.category ?? "")")
+            .navigationBarTitle("Learn \(model.currentModule?.category ?? "")")
         }
     }
 }

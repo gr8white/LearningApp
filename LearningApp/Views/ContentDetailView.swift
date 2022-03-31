@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct LessonDetailView: View {
+struct ContentDetailView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {

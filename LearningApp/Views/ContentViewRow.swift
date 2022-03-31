@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LessonListViewRow: View {
+struct ContentViewRow: View {
     @EnvironmentObject var model: ContentModel
     var index: Int
     
