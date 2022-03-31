@@ -46,6 +46,7 @@ struct HomeView: View {
                                         HomeViewRow(image: m.test.image, title: "\(m.category) Test", description: m.test.description, count: "\(m.test.questions.count) Lessons", time: m.test.time)
                                     }.buttonStyle(.plain)
                             }
+                            .padding(.bottom, 10)
                         }
                     }
                     .padding()

@@ -34,7 +34,11 @@ class ContentModel: ObservableObject {
     var styleData: Data?
     
     init() {
+        // Parse local included json data
         getLocalData()
+        
+        // Download remote json file and parse data
+        getRemoteData()
     }
     
     func getLocalData() {
@@ -65,6 +69,43 @@ class ContentModel: ObservableObject {
         } catch {
             print("Couldn't parse style data")
         }
+    }
+    
+    func getRemoteData() {
+        let urlString = "https://gr8white.github.io/LearningAppData/data2.json"
+        
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            // Couldn't create url
+            return
+        }
+        
+        // Create a URL request object
+        let request = URLRequest(url: url!)
+        
+        // Get the session and kick off the task
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            // Check if there's an error
+            guard error == nil else { return }
+            
+            // Handle response
+            do {
+                // try to decode the data into an array of modules
+                let jsonDecoder = JSONDecoder()
+                
+                let modules = try jsonDecoder.decode([Module].self, from: data!)
+                
+                self.modules += modules
+            } catch {
+                print(error)
+            }
+        }
+        
+        // Kick off the data task
+        dataTask.resume()
     }
     
     func beginModule(_ moduleId: Int) {
