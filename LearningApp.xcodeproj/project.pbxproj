@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E012FA0D27F53B3A0088CEDC /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E012FA0C27F53B3A0088CEDC /* TestResultView.swift */; };
 		E02D821E27D563E600512DED /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D821D27D563E600512DED /* LearningApp.swift */; };
 		E02D822027D563E600512DED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D821F27D563E600512DED /* HomeView.swift */; };
 		E02D822227D563EF00512DED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E02D822127D563EF00512DED /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E012FA0C27F53B3A0088CEDC /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		E02D821A27D563E600512DED /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02D821D27D563E600512DED /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		E02D821F27D563E600512DED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				E095BA2127DA871D0087096F /* CodeTextView.swift */,
 				E033BA3727EA853F0040719A /* TestView.swift */,
+				E012FA0C27F53B3A0088CEDC /* TestResultView.swift */,
 				E02D821F27D563E600512DED /* HomeView.swift */,
 				E02D823A27D6835900512DED /* HomeViewRow.swift */,
 				E02D823C27D686E100512DED /* ContentView.swift */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E033BA3827EA853F0040719A /* TestView.swift in Sources */,
+				E012FA0D27F53B3A0088CEDC /* TestResultView.swift in Sources */,
 				E02D823F27D6925A00512DED /* ContentViewRow.swift in Sources */,
 				E02D823D27D686E100512DED /* ContentView.swift in Sources */,
 				E02D822027D563E600512DED /* HomeView.swift in Sources */,

@@ -88,7 +88,7 @@ struct TestView: View {
                 .disabled(selectedAnswerIndex == nil)
 
             } else {
-                ProgressView()
+                TestResultView(numCorrect: numCorrect)
             }
         }
         .navigationTitle("\(model.currentModule?.category ?? "") Test")
